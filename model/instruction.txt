@@ -1,7 +1,10 @@
 
 Download Llama 2 Model:
+
 TheBloke/Llama-2-7B-Chat-GGML
 from:
 https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/tree/main
 and
 place it in model directory.
+
+You can download either "llama-2-7b-chat.ggmlv3.q4_0.bin" OR "llama-2-7b-chat.ggmlv3.q2_K.bin".
