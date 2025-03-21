@@ -2,12 +2,15 @@
 
 import os
 import time
-from langchain.document_loaders import PyPDFLoader, PyMuPDFLoader, DirectoryLoader
+# from langchain.document_loaders import PyPDFLoader, PyMuPDFLoader, DirectoryLoader
+from langchain_community.document_loaders import PyPDFLoader, PyMuPDFLoader, DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from urllib.parse import urlparse, parse_qs
 from langchain_pinecone import PineconeVectorStore      # not compatible with the retriever expected by langchain
-from langchain.vectorstores import Pinecone
-from langchain.embeddings import HuggingFaceEmbeddings
+# from langchain.vectorstores import Pinecone           # deprecated
+from langchain_community.vectorstores import Pinecone
+# from langchain.embeddings import HuggingFaceEmbeddings    # deprecated
+from langchain_community.embeddings import HuggingFaceEmbeddings
 
 
 
