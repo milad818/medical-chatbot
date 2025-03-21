@@ -5,6 +5,9 @@ import time
 from langchain.document_loaders import PyPDFLoader, PyMuPDFLoader, DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from urllib.parse import urlparse, parse_qs
+from langchain_pinecone import PineconeVectorStore      # not compatible with the retriever expected by langchain
+from langchain.vectorstores import Pinecone
+from langchain.embeddings import HuggingFaceEmbeddings
 
 
 
@@ -25,6 +28,11 @@ def text_splitter(documents):
     chunks = rec_splitter.split_documents(documents)
 
     return chunks
+
+
+def download_huggingface_embedding(model_name):
+    embedding = HuggingFaceEmbeddings(model_name=model_name)
+    return embedding
 
 
 def cc_pinecone_index(index_name: str, pc, spec):
@@ -49,3 +57,30 @@ def cc_pinecone_index(index_name: str, pc, spec):
     index = pc.Index(index_name)
 
     return index
+
+
+
+def load_vectorstore(index, index_name, embedding, text_chunks=None):
+    index_stats = index.describe_index_stats()
+    existing_vector_count = index_stats["total_vector_count"]
+
+    if existing_vector_count == 0:
+        print("Index is empty. Uploading new documents...")
+        
+        vectorstore_from_chunks = PineconeVectorStore.from_documents(
+        text_chunks,
+        index_name=index_name,
+        embedding=embedding
+        )
+
+        print("Upload complete.")
+
+        return vectorstore_from_chunks
+    else:
+        print(f"Index already contains {existing_vector_count} vectors. Skipping upload.")
+        # load the existing vector store whether or not new data was added
+        # vectorstore = Pinecone.from_existing_index(index_name=index_name, embedding=embedding)
+        vectorstore = PineconeVectorStore(index_name=index_name, embedding=embedding)
+        print(f"Existing vectorstore is now loaded.")
+    
+        return vectorstore
