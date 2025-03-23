@@ -73,6 +73,17 @@ qa = RetrievalQA.from_chain_type(
 def index():
     return render_template('chat.html')
 
+
+@app.route("/get", methods=["GET", "POST"])
+def chat():
+    msg = request.form["msg"]
+    input = msg
+    print(f"Question: {input}")    # display message on terminal
+    result = qa({"query": input})
+    print(f"Response: {result['result']}")
+    return str(result["result"])
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 

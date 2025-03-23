@@ -13,7 +13,7 @@ file_list = [
     "src/prompt.py",
     ".env",
     "setup.py",
-    "research/trials.ipynb",
+    "test/trials.ipynb",
     "app.py",
     "store_index.py",
     "static/.gitkeep",

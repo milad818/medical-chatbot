@@ -4,7 +4,8 @@ from langchain_pinecone import PineconeVectorStore
 from src.helper import load_pdf, text_splitter, cc_pinecone_index
 from dotenv import load_dotenv
 from huggingface_hub import hf_hub_download
-from langchain.embeddings import HuggingFaceEmbeddings
+# from langchain.embeddings import HuggingFaceEmbeddings      # deprecated
+from langchain_huggingface import HuggingFaceEmbeddings
 import os
 
 
@@ -35,11 +36,10 @@ PINECONE_API_KEY = os.environ.get('PINECONE_API_KEY')
 
 # print(PINECONE_API_KEY)
 
-data_directory = "./data"
+data_directory = "data"   
 documents = load_pdf(data_directory)
 
 text_chunks = text_splitter(documents)
-
 
 # pinecone vector database specifications (vectorstore specs.)
 index_name = "medical-chatbot"

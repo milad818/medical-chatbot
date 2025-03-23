@@ -7,5 +7,6 @@ Answer the question below given the context. Please don't try to make up one if 
 Question: {question}
 Context: {context}
 
-I only need a genuine and reliable answer. Thank you.
+Only return the helpful answer below and nothing else.
+Helpful answer:
 """
