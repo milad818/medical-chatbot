@@ -71,7 +71,7 @@ qa = RetrievalQA.from_chain_type(
 # make sure the html file is located in "templates" directory and templates is located where app.py is
 @app.route("/")
 def index():
-    return render_template('chat.html')
+    return render_template('chat2.html')
 
 
 @app.route("/get", methods=["GET", "POST"])
