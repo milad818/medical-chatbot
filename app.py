@@ -36,7 +36,8 @@ embedding = download_huggingface_embedding(model_name=model_name)
 
 # load vectorstore
 vectorstore = load_vectorstore(index, index_name, embedding=embedding)
-print(isinstance(vectorstore, PineconeVectorStore))
+# below you can check whether there is a valid instance created
+# print(isinstance(vectorstore, PineconeVectorStore))
 
 # define prompt template
 MEDICAL_PROMPT = PromptTemplate(template=prompt_template,
@@ -67,6 +68,7 @@ qa = RetrievalQA.from_chain_type(
 
 
 # this decorator tells Flask to run the index() function when a user accesses the root URL ("/")
+# make sure the html file is located in "templates" directory and templates is located where app.py is
 @app.route("/")
 def index():
     return render_template('chat.html')

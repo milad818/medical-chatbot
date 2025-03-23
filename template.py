@@ -17,8 +17,10 @@ file_list = [
     "app.py",
     "store_index.py",
     "static/.gitkeep",
-    "templates/chat.html"
-    "test.py"
+    "static/style.css",
+    "templates/chat.html",
+    "test.py",
+    "images"
 ]
 
 
