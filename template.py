@@ -17,7 +17,7 @@ file_list = [
     "app.py",
     "store_index.py",
     "static/.gitkeep",
-    "template/chat.html"
+    "templates/chat.html"
     "test.py"
 ]
 

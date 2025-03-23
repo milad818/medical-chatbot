@@ -4,7 +4,8 @@ from src.helper import *
 from langchain_community.vectorstores import Pinecone
 import pinecone
 from langchain.prompts import PromptTemplate
-from langchain.llms import CTransformers
+# from langchain.llms import CTransformers            # deprecated
+from langchain_community.llms import CTransformers
 from langchain.chains import RetrievalQA
 from dotenv import load_dotenv
 from src.prompt import *
@@ -68,7 +69,7 @@ qa = RetrievalQA.from_chain_type(
 # this decorator tells Flask to run the index() function when a user accesses the root URL ("/")
 @app.route("/")
 def index():
-    return render_template("chat.html")
+    return render_template('chat.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

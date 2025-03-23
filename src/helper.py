@@ -10,7 +10,8 @@ from langchain_pinecone import PineconeVectorStore      # not compatible with th
 # from langchain.vectorstores import Pinecone           # deprecated
 from langchain_community.vectorstores import Pinecone
 # from langchain.embeddings import HuggingFaceEmbeddings    # deprecated
-from langchain_community.embeddings import HuggingFaceEmbeddings
+# from langchain_community.embeddings import HuggingFaceEmbeddings      # deprecated
+from langchain_huggingface import HuggingFaceEmbeddings
 
 
 
