@@ -48,7 +48,7 @@ MEDICAL_PROMPT = PromptTemplate(template=prompt_template,
 chain_type_kwargs={"prompt": MEDICAL_PROMPT}
 
 # initialize the LLaMA-2 model (via CTransformers)
-llm = CTransformers(model="model\llama-2-7b-chat.ggmlv3.q2_K.bin",
+llm = CTransformers(model="model\llama-2-7b-chat.ggmlv3.q4_0.bin",
                     model_type="llama",
                     config={"max_new_tokens": 512,  # limits response length
                             "temperature": 0.8})

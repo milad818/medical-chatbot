@@ -17,7 +17,7 @@ load_dotenv()
 
 
 repo_id = "TheBloke/Llama-2-7B-Chat-GGML"  # Example repo
-model_name = "llama-2-7b-chat.ggmlv3.q2_K.bin"
+model_name = "llama-2-7b-chat.ggmlv3.q4_0.bin"
 model_path = os.path.join("./model", model_name)
 embedding_name = "sentence-transformers/all-MiniLM-L6-v2"
 
